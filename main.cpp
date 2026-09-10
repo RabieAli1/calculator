@@ -5,63 +5,74 @@ int main()
 {
   double num1, num2;
   char operation;
+  char choice;
 
-  cout << "Enter first number: ";
-  cin >> num1;
-
-  if (cin.fail())
+  do
   {
-    cout << "Invalid input!" << endl;
-    return 0;
-  }
+    cout << "Enter first number: ";
+    cin >> num1;
 
-  cout << "Enter operation (+, -, *, /): ";
-  cin >> operation;
+    if (cin.fail())
+    {
+      cout << "Invalid input!" << endl;
+      return 0;
+    }
 
-  if (operation != '+' &&
-      operation != '-' &&
-      operation != '*' &&
-      operation != '/')
-  {
-    cout << "Invalid operation!" << endl;
-    return 0;
-  }
+    cout << "Enter operation (+, -, *, /): ";
+    cin >> operation;
 
-  cout << "Enter second number: ";
-  cin >> num2;
+    if (operation != '+' &&
+        operation != '-' &&
+        operation != '*' &&
+        operation != '/')
+    {
+      cout << "Invalid operation!" << endl;
+      return 0;
+    }
 
-  if (cin.fail())
-  {
-    cout << "Invalid input!" << endl;
-    return 0;
-  }
+    cout << "Enter second number: ";
+    cin >> num2;
 
-  if (operation == '/' && num2 == 0)
-  {
-    cout << "Error: Cannot divide by zero!" << endl;
-    return 0;
-  }
+    if (cin.fail())
+    {
+      cout << "Invalid input!" << endl;
+      return 0;
+    }
 
-  double result;
+    if (operation == '/' && num2 == 0)
+    {
+      cout << "Error: Cannot divide by zero!" << endl;
+    }
+    else
+    {
+      double result;
 
-  if (operation == '+')
-  {
-    result = num1 + num2;
-  }
-  else if (operation == '-')
-  {
-    result = num1 - num2;
-  }
-  else if (operation == '*')
-  {
-    result = num1 * num2;
-  }
-  else
-  {
-    result = num1 / num2;
-  }
+      if (operation == '+')
+      {
+        result = num1 + num2;
+      }
+      else if (operation == '-')
+      {
+        result = num1 - num2;
+      }
+      else if (operation == '*')
+      {
+        result = num1 * num2;
+      }
+      else
+      {
+        result = num1 / num2;
+      }
 
-  cout << "Result: " << result << endl;
+      cout << "Result: " << result << endl;
+    }
+
+    cout << "Do you want to perform another calculation? (y/n): ";
+    cin >> choice;
+
+  } while (choice == 'y' || choice == 'Y');
+
+  cout << "Goodbye!" << endl;
 
   return 0;
 }
